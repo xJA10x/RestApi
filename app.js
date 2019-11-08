@@ -1,6 +1,6 @@
 
 // Notes:
-  // Working with express is easy because it allows us to create routes.
+  // Working with express is easy because it allows us to create routes(endpoints).
 
   // Middleware is small function
   // that executes when an you direct it to an expecific route.
