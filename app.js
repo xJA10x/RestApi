@@ -1,5 +1,9 @@
 
 // Notes:
+  // package.json only holds our dependecies
+    // Packages that we are going to get from the internet.
+
+
   // Working with express is easy because it allows us to create routes(endpoints).
 
   // Middleware is small function
@@ -8,17 +12,22 @@
   // For example,
     // with middleware we can do authentication.
 
+  // Four CRUD operations,
+    // Create(POST), Read(GET), Update(PATCH), Delete(DEL)
+
   // MongoDB is a document type
-  // that doesnt have relantions.
+  // that doesnt have rela tions.
   // Imagine it being this big  that is storing a lot of
   // information, so you don't have relations between tables.
-  // Moongose npm module makes connecting to the database a lot easire.
-
-
-
+  // Moongose npm packages makes connecting to the database a lot easier.
 
 // Imports express npm module.
 const express = require('express');
+// Function call.
+// Takes one parameter,
+// loads mongoose npm library.
+// Stores output in the variable mongoose.
+const mongoose = require('mongoose');
 
 // Initializes express app(executes).
 const app = express();
@@ -40,9 +49,15 @@ app.get('/posts', (req, res) => {
 
 });
 
+// Connects to database.
+mongoose.connect('mongodb://127.0.0.1:27017/rest', {useNewUrlParser: true}, () => {
+
+  console.log("Connected to DB!")
+
+});
 
 // Builds server to litsen for request at a
 // given port.
 // Takes one parameter,
-// the port that you want to litsen.
+// the port that you want to litsening to the server.
 app.listen(3000);
