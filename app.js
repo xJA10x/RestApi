@@ -3,8 +3,8 @@
   // package.json only holds our dependecies
     // Packages that we are going to get from the internet.
 
-
-  // Working with express is easy because it allows us to create routes(endpoints).
+  // Working with express is easy because it allows us to create routes(endpoints) to work
+  // with the database..
 
   // Middleware is small function
   // that executes when an you direct it to an expecific route.
@@ -16,43 +16,36 @@
     // Create(POST), Read(GET), Update(PATCH), Delete(DEL)
 
   // MongoDB is a document type
-  // that doesnt have rela tions.
-  // Imagine it being this big  that is storing a lot of
+  // that doesnt have relations.
+  // Imagine it being this big objects that is storing a lot of
   // information, so you don't have relations between tables.
   // Moongose npm packages makes connecting to the database a lot easier.
 
 // Imports express npm module.
 const express = require('express');
+// Initializes express app(executes).
+const app = express();
 // Function call.
 // Takes one parameter,
 // loads mongoose npm library.
 // Stores output in the variable mongoose.
 const mongoose = require('mongoose');
 
-// Initializes express app(executes).
-const app = express();
+// Import Routes.
+const postsRoute = require('./routes/posts');
 
-// Routes(enpoints)
-// Takes one parameter,
-// the route that we want to go to.
-app.get('/', (req, res) => {
+// Creates middleware.
+app.use('/posts', postsRoute);
 
-  // Sends back response.
-  res.send("We are on home");
-
-});
-
-app.get('/posts', (req, res) => {
-
-  // Sends back response.
-  res.send("We are on posts");
-
-});
 
 // Connects to database.
-mongoose.connect('mongodb://127.0.0.1:27017/rest', {useNewUrlParser: true}, () => {
+mongoose.connect('mongodb://127.0.0.1:27017/rest',
 
-  console.log("Connected to DB!")
+  {useNewUrlParser: true},
+
+    () => {
+
+      console.log("Connected to DB!")
 
 });
 
