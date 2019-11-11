@@ -19,7 +19,7 @@
   // that doesnt have relations.
   // Imagine it being this big objects that is storing a lot of
   // information, so you don't have relations between tables.
-  // Moongose npm packages makes connecting to the database a lot easier.
+  // Moongose npm package makes connecting to the database a lot easier.
 
 // Imports express npm module.
 const express = require('express');
@@ -30,13 +30,11 @@ const app = express();
 // loads mongoose npm library.
 // Stores output in the variable mongoose.
 const mongoose = require('mongoose');
-
 // Import Routes.
 const postsRoute = require('./routes/posts');
 
 // Creates middleware.
 app.use('/posts', postsRoute);
-
 
 // Connects to database.
 mongoose.connect('mongodb://127.0.0.1:27017/rest',
