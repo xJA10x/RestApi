@@ -17,9 +17,11 @@
 
   // MongoDB is a document type
   // that doesnt have relations.
-  // Imagine it being this big objects that is storing a lot of
-  // information, so you don't have relations between tables.
+  // Imagine it being this big object that is storing a lot of
+  // information, that way you don't have relations between tables.
   // Moongose npm package makes connecting to the database a lot easier.
+
+  // Postman allows us to test our api
 
 // Imports express npm module.
 const express = require('express');

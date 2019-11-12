@@ -32,3 +32,7 @@ const PostSchema = mongoose.Schema({
   }
 
 });
+
+// Exports the schema.
+// Creates model that will show up in the database.
+module.exports = mongoose.model('Posts', PostSchema);
