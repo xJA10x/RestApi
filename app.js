@@ -32,9 +32,16 @@ const app = express();
 // loads mongoose npm library.
 // Stores output in the variable mongoose.
 const mongoose = require('mongoose');
+// Imports package to parse response to json.
+const bodyParser = require('body-parser');
+
 // Import Routes.
 const postsRoute = require('./routes/posts');
 
+// Creates middleware.
+// Every time a request is made,
+// this middleware will run.
+app.use(bodyParser.json());
 // Creates middleware.
 app.use('/posts', postsRoute);
 
