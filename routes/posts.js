@@ -19,7 +19,30 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 
   // Creates new post.
-  console.log(req.body)
+  // Takes one parameter,
+  // an object.
+  const post = new Post({
+
+    title: req.body.title,
+    description: req.body.description
+
+  })
+
+  // Saves to database.
+  post.save()
+  .then(data => {
+
+    // Sends back response.
+    res.json(data)
+
+  })
+
+  // Runs if we have an error.
+  .catch(err =>{
+
+    res.json({message: err})
+
+  })
 
 });
 
