@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 // Endpoint for posting to the database.
-router.post('/', (req, res) => {
+router.post('/',  async (req, res) => {
 
   // Creates new post.
   // Takes one parameter,
@@ -28,21 +28,19 @@ router.post('/', (req, res) => {
 
   })
 
-  // Saves to database.
-  post.save()
-  .then(data => {
+  try {
+
+    // Saves to database.
+    const savedPost = await post.save()
 
     // Sends back response.
-    res.json(data)
+    res.json(savedPost)
 
-  })
+  } catch(err) {
 
-  // Runs if we have an error.
-  .catch(err =>{
+    res.json({message:err})
 
-    res.json({message: err})
-
-  })
+  }
 
 });
 
