@@ -8,10 +8,19 @@ const Post = require('../models/Post');
 // Creates router.
 // Takes two parameters,
 // the route that we want to go to and the route handler.
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 
-  // Sends back response.
-  res.send("We are on posts")
+  try {
+
+    // Returns all posts.
+    const posts = await Post.find()
+    res.json(posts)
+
+  } catch(err) {
+
+    res.json({message:err})
+
+  }
 
 });
 
