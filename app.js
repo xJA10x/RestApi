@@ -21,7 +21,8 @@
   // information, that way you don't have relations between tables.
   // Moongose npm package makes connecting to the database a lot easier.
 
-  // Postman allows us to test our api
+  // Postman allows us to test our api by testing our endpoint to
+  // make sure data is going and coming back from the database.
 
 // Imports express npm module.
 const express = require('express');

@@ -8,6 +8,7 @@ const Post = require('../models/Post');
 // Creates router.
 // Takes two parameters,
 // the route that we want to go to and the route handler.
+// ENDPOINT FOR GETTING BACK ALL THE POST
 router.get('/', async (req, res) => {
 
   try {
@@ -48,6 +49,24 @@ router.post('/',  async (req, res) => {
   } catch(err) {
 
     res.json({message:err})
+
+  }
+
+});
+
+// ENDPOINT FOR GETTING SPECIFIC POST.
+router.get('/:postId', async (req, res) => {
+
+  try {
+
+    const post = await Post.findById(req.params.postId)
+
+    // Sends back response.
+    res.json(post)
+
+  } catch(err) {
+
+    res.json({message: err})
 
   }
 
