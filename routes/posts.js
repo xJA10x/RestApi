@@ -72,6 +72,29 @@ router.get('/:postId', async (req, res) => {
 
 });
 
+// Endpoint for deleting specific post.
+router.delete('/:postId', async (req, res) => {
+
+  try {
+
+    // Method takes one parameter,
+    // an object to search by specific criteria.
+    const removedPost = await Post.remove({
+
+      _id: req.params.postId
+
+    })
+
+    res.json(removedPost)
+
+  } catch(err) {
+
+    res.json({message: err})
+
+  }
+
+});
+
 // Exports router
 // so that other modules have access to it.
 module.exports = router;
