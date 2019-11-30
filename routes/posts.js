@@ -95,6 +95,29 @@ router.delete('/:postId', async (req, res) => {
 
 });
 
+// Endpoint for updating specific post.
+router.patch('/:postId', async (req, res) => {
+
+  try {
+
+    const updatedPost = await Post.updateOne({
+
+      _id: req.params.postId
+
+    }, {
+
+      $set: {title: req.body.title}
+
+    })
+
+    res.json(updatedPost)
+
+  } catch(err) {
+
+  }
+
+});
+
 // Exports router
 // so that other modules have access to it.
 module.exports = router;
